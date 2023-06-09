@@ -1,6 +1,6 @@
 #include "Header.h"
 
-int my_strlen(char* str) {
+int my_strlen(const char* str) {
     int len = 0;
     char* p_s = str;
     while (*p_s++) {
@@ -9,20 +9,20 @@ int my_strlen(char* str) {
     return len;
 }
 
-void my_strcpy(char* dest, char* s) {
+void my_strcpy(char* dest, const char* s) {
     char* p_s = s;
     char* p_dest = dest;
     while (*p_s) {
         *p_dest++ = *p_s++;
-        //ıêâèâàëåíòíî êîäó:
+        //ÑĞºĞ²Ğ¸Ğ²Ğ°Ğ»ĞµĞ½Ñ‚Ğ½Ğ¾ ĞºĞ¾Ğ´Ñƒ:
         // *p_dest = *p_s;
         // p_dest++; p_s++;
     }
     *p_dest = '\0';
 }
 
-void my_strcat(char* dest, char* s) {
-    //ïåğåíîñèì óêàçàòåëü íà äëèíó ñëîâà dest äëÿ ïåğåíîñà ñèìâîëîâ
+void my_strcat(char* dest, const char* s) {
+    //Ğ¿ĞµÑ€ĞµĞ½Ğ¾ÑĞ¸Ğ¼ ÑƒĞºĞ°Ğ·Ğ°Ñ‚ĞµĞ»ÑŒ Ğ½Ğ° Ğ´Ğ»Ğ¸Ğ½Ñƒ ÑĞ»Ğ¾Ğ²Ğ° dest Ğ´Ğ»Ñ Ğ¿ĞµÑ€ĞµĞ½Ğ¾ÑĞ° ÑĞ¸Ğ¼Ğ²Ğ¾Ğ»Ğ¾Ğ²
     char* p_dest = dest + my_strlen(dest);
     char* p_s = s;
     while (*p_s) {
@@ -31,7 +31,7 @@ void my_strcat(char* dest, char* s) {
     *p_dest = '\0';
 }
 
-int my_strcmp(char* s1, char* s2) {
+int my_strcmp(const char* s1, const char* s2) {
     int l1 = my_strlen(s1), l2 = my_strlen(s2);
     if (l1 > l2) return 1;
     else if (l1 < l2) return -1;
